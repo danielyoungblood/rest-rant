@@ -6,6 +6,7 @@ const app = express(); //this starts express, associates the name app with expre
 //the following two lines tell react how we are going to display stuff to the browser
 app.set("view engine", "jsx");
 app.engine("jsx", require("express-react-views").createEngine());
+app.use(express.static('public'))
 
 app.use("/places", require("./controllers/places"));
 
