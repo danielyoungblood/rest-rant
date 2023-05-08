@@ -1,5 +1,7 @@
 const router = require("express").Router();
 
+//this establishes a route (path) to /places with using the GET method
+//with express using the name router then a . followed by the http method defines a path
 router.get("/", (req, res) => {
   let places = [
     {
@@ -18,6 +20,12 @@ router.get("/", (req, res) => {
     },
   ];
   res.render("places/index", { places });
+});
+
+//this establises a route path to /places/new
+//router.get adds the "/places" to this path that ends with "/new" giving us the complete path as "/places/new"
+router.get("/new", (req, res) => {
+  res.render("places/new");
 });
 
 module.exports = router;
