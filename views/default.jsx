@@ -10,6 +10,19 @@ function Def (html) {
               <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"></script> 
           </head>
           <body>
+            <nav>
+                <ul>
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    <li>
+                        <a href="/places">Places</a>
+                    </li>
+                    <li>
+                        <a href="/places/new">Add place</a>
+                    </li>
+                </ul>
+            </nav>
               {html.children}
           </body>
       </html>
