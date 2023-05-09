@@ -1,30 +1,25 @@
 const router = require("express").Router();
+const places = require("../models/places.js");
 
 //this defines a route (path) to /places using the GET method
 //with express using the name router then a . followed by the http method defines a path
 router.get("/", (req, res) => {
-  let places = [
-    {
-      name: "H-Thai-ML",
-      city: "Seattle",
-      state: "WA",
-      cuisines: "Thai, Pan-Asian",
-      pic: "/images/thai.jpg",
-    },
-    {
-      name: "Coding Cat Cafe",
-      city: "Phoenix",
-      state: "AZ",
-      cuisines: "Coffee, Bakery",
-      pic: "/images/cat_cafe.jpg",
-    },
-  ];
   res.render("places/index", { places });
 });
 
 router.post("/", (req, res) => {
-  console.log(req.body);
-  res.send("POST /places - sent by express");
+  if (!req.body.pic) {
+    // Default image if one is not provided
+    req.body.pic = "http://placekitten.com/400/400";
+  }
+  if (!req.body.city) {
+    req.body.city = "Anytown";
+  }
+  if (!req.body.state) {
+    req.body.state = "USA";
+  }
+  places.push(req.body);
+  res.redirect("/places");
 });
 
 //this defines a route (path) to /places/new
