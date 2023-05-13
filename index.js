@@ -1,6 +1,7 @@
 require("dotenv").config();
 
 const express = require("express"); //this is needed/required to use express in node.js
+const methodOverride = require('method-override')
 const app = express(); //this starts express, associates the name app with express
 
 //the following two lines tell react how we are going to display stuff to the browser
@@ -8,7 +9,7 @@ app.set("view engine", "jsx");
 app.engine("jsx", require("express-react-views").createEngine());
 app.use(express.static('public'))
 app.use(express.urlencoded({ extended: true }));
-
+app.use(methodOverride('_method'))
 app.use("/places", require("./controllers/places"));
 
 //this creates a default path, what the users sees in the browser when they just type the server name followed by :3000 in the browser

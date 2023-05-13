@@ -3,6 +3,10 @@ h1 {
     color: cornflowerblue;
 }
 
+h2 {
+    color: aqua;
+}
+
 nav {
     background-color: cornflowerblue;
     padding: 10px;
@@ -37,4 +41,16 @@ main {
     margin-right: 20px;
     margin-left: 20px;
     background-color: white;
+}
+
+.container {
+    display: flex;
+    
+}
+
+.styles {
+padding-top: 10px;
+padding-bottom: 25px;
+padding-right: 25;
+padding-right: 25px;
 }
