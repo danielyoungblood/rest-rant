@@ -7,14 +7,15 @@ function index (data)
     //defining a variable named placesFormatted
     //the variable named placesFormatted will contain html and information in the variable named data
     //in other words placesFormatted will contain the value of html data
-     let placesFormatted = data.places.map((place) => 
+     let placesFormatted = data.places.map((place, id) => 
      {
       return (
       <div className="col-sm-6">
-        <h2>{place.name}</h2>
-        <a href={`/places/${index}`}>
+        <h2>
+        <a href={`places/${id}`} >
             {place.name}
-            </a>
+        </a>
+        </h2>
         <p className="text-center">
           {place.cuisines}
         </p>
@@ -24,11 +25,11 @@ function index (data)
         </p>
       </div>
       )
-  })
+       })
 
   //finally index function returns the html in lines 23-28
   //placesFormatted variable defined above is now used on line 27                                       
- return (
+  return (
     <Def>
         <main>
             <h1>Places I Like</h1>
@@ -37,17 +38,11 @@ function index (data)
             </div>
         </main>
     </Def>
-)
+  )
 }
 
 
 
-/*
-function index (data) {
- 
-  
-}
-*/
 
 module.exports = index
 
