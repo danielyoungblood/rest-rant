@@ -18,7 +18,8 @@ function show (data) {
                   </div>
                   <div>
                     <h2>Description</h2>
-                    <p>Located in Phoenix, AZ and serving area</p>
+                    <p>Located in {data.place.city}, {data.place.state}</p>
+                    <p>Serving {data.place.cuisines}</p>
                   </div>
                </div>
             </div>
