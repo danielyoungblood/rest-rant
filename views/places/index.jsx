@@ -7,12 +7,12 @@ function index (data)
     //defining a variable named placesFormatted
     //the variable named placesFormatted will contain html and information in the variable named data
     //in other words placesFormatted will contain the value of html data
-     let placesFormatted = data.places.map((place, id) => 
+     let placesFormatted = data.places.map((place) => 
      {
       return (
       <div className="col-sm-6">
         <h2>
-        <a href={`places/${id}`} >
+        <a href={`/places/${place.id}`} >
             {place.name}
         </a>
         </h2>
