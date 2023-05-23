@@ -58,8 +58,12 @@ function show (data) {
                            Delete
                         </button>
                       </form> 
+                      <a href={`/places/${data.id}/comment`} className="btn btn_primary"> 
+                         add comment
+                      </a> 
                    </div>
                 </div>
+            
             </div>
             <hr/> 
             <div id="comments">
