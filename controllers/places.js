@@ -30,14 +30,15 @@ router.post("/", (req, res) => {
 });
 
 router.post("/:id/comment", (req, res) => {
-  console.log(req.body);
+  console.log("router.post=>/:id/comment, req.body" + req.body);
+  console.log("router.post=>/:id/comment, req.params.id" + req.params.id);
   req.body.rant = req.body.rant ? true : false;
   db.Place.findById(req.params.id)
     .then((place) => {
       db.Comment.create(req.body).then((comment) => {
         place.comments.push(comment.id);
         place.save().then(() => {
-          res.redirect(`/places/$req.params.id}`);
+          res.redirect(`/places/${req.params.id}`);
         });
       });
     })
@@ -75,6 +76,16 @@ router.get("/:id/edit", (req, res) => {
     });
 });
 
+router.get("/:id/comment", (req, res) => {
+  db.Place.findById(req.params.id)
+    .then((place) => {
+      res.render("places/comment", { place });
+    })
+    .catch((err) => {
+      res.render("error404");
+    });
+});
+
 router.delete("/:id", (req, res) => {
   db.Place.findByIdAndDelete(req.params.id)
     .then((place) => {
@@ -87,6 +98,8 @@ router.delete("/:id", (req, res) => {
 });
 
 router.put("/:id", (req, res) => {
+  console.log("router.put=>/:id, req.body" + req.body);
+  console.log("router.put=>/:id, req.params.id" + req.params.id);
   db.Place.findByIdAndUpdate(req.params.id, req.body)
     .then(() => {
       res.redirect(`/places/${req.params.id}`);

@@ -67,7 +67,7 @@ function show (data) {
                        Serving {data.place.cuisines}
                    </h4>
                    <div className="row">
-                      <a href={`/places/${data.id}/edit`} className="btn btn-warning"> 
+                      <a href={`/places/${data.place.id}/edit`} className="btn btn-warning"> 
                          Edit
                       </a> 
                       <form method='POST' action={`/places/${data.place.id}?_method=DELETE`}>
@@ -75,7 +75,7 @@ function show (data) {
                            Delete
                         </button>
                       </form> 
-                      <a href={`/places/${data.id}/comment`} className="btn btn-primary"> 
+                      <a href={`/places/${data.place.id}/comment`} className="btn btn-primary"> 
                          add comment
                       </a> 
                    </div>
