@@ -21,6 +21,7 @@ router.post("/", (req, res) => {
   }
   db.Place.create(req.body)
     .then(() => {
+      console.log("place added successfully");
       res.redirect("/places");
     })
     .catch((err) => {
